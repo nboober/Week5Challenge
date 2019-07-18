@@ -25,6 +25,8 @@ public class Bullhorn {
 
     private String postedDate;
 
+    @NotNull
+    @Size(min = 1)
     private String postedBy;
 
     public long getId() {
