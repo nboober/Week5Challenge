@@ -11,14 +11,16 @@
     <table>
         <tr><th>Title</th><th>Content</th><th>Posted By</th><th>Posted Date</th></tr>
         <tr th:each="message : ${messages}">
+
             <td th:text="${message.title}"></td>
             <td th:text="${message.content}"></td>
             <td th:text="${message.postedBy}"></td>
             <td th:text="${message.postedDate}"></td>
-
-            <td th:href="@{/update/{id}(id=${course.id})}">Update</td>
-            <td th:href="@{/detail/{id}(id=${course.id})}">Details</td>
-            <td th:href="@{/delete/{id}(id=${course.id})}">Delete</td>
+            <td>
+                <a th:href="@{/update/{id}(id=${message.id})}">Update</a>
+                <a th:href="@{/detail/{id}(id=${message.id})}">Details</a>
+                <a th:href="@{/delete/{id}(id=${message.id})}">Delete</a>
+            </td>
 
         </tr>
     </table>
