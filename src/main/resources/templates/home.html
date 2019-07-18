@@ -4,22 +4,26 @@
 <body>
 <nav th:insert="base :: navbar"></nav>
 
-    <table>
-        <tr><th>Title</th><th>Content</th><th>Posted By</th><th>Posted Date</th></tr>
-        <tr th:each="message : ${messages}">
+<!--Message Cards Start-->
+<div class="card" th:each="message : ${messages}">
+    <div class="card-header" th:text="${message.title}"></div>
+    <div class="card-body" >
+        <blockquote class="blockquote mb-0">
+            <p th:text="${message.content}"></p>
+            <footer>
+                    <p class="blockquote-footer">Posted By: <span th:text="${message.postedBy}"></span> on <span th:text="${message.postedDate}"></span></p>
+            </footer>
+        </blockquote>
+    </div>
+    <hr/>
+    <div>
+        <a class="side-by-side" th:href="@{/update/{id}(id=${message.id})}">Update</a>
+        <a class="side-by-side" th:href="@{/detail/{id}(id=${message.id})}">Details</a>
+        <a class="side-by-side" th:href="@{/delete/{id}(id=${message.id})}">Delete</a>
+    </div>
+</div>
+<!--Message Cards end-->
 
-            <td th:text="${message.title}"></td>
-            <td th:text="${message.content}"></td>
-            <td th:text="${message.postedBy}"></td>
-            <td th:text="${message.postedDate}"></td>
-            <td>
-                <a th:href="@{/update/{id}(id=${message.id})}">Update</a>
-                <a th:href="@{/detail/{id}(id=${message.id})}">Details</a>
-                <a th:href="@{/delete/{id}(id=${message.id})}">Delete</a>
-            </td>
-
-        </tr>
-    </table>
 <div th:insert="base :: javascript"></div>
 </body>
 </html>
