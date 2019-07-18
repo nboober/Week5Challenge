@@ -16,17 +16,17 @@ public class Bullhorn {
     private long id;
 
     @NotNull
-    @Size(min=1)
+    @Size(min=2)
     private String title;
 
     @NotNull
-    @Size(min=1)
+    @Size(min=2)
     private String content;
 
     private String postedDate;
 
     @NotNull
-    @Size(min = 1)
+    @Size(min = 2)
     private String postedBy;
 
     public long getId() {

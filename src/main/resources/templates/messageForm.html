@@ -2,17 +2,19 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head th:insert="base :: head"></head>
 <body>
+<nav th:insert="base :: navbar"></nav>
 
     <form action="#" th:action="@{/process}" th:object="${message}" method="post">
         <input type="hidden" th:field="*{id}"/>
+
         Title: <input type="text" th:field="*{title}"/>
-        <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"/><br/>
+        <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span><br/>
 
         Content: <textarea type="text" th:field="*{content}"></textarea>
-        <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}"/><br/>
+        <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span><br/>
 
         Posted By: <input type="text" th:field="*{postedBy}"/>
-        <span th:if="${#fields.hasErrors('postedBy')}" th:errors="*{postedBy}"/><br/>
+        <span th:if="${#fields.hasErrors('postedBy')}" th:errors="*{postedBy}"></span><br/>
 
         <input type="submit" value="Post"/>
     </form>
