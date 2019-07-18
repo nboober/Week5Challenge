@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<head th:insert="base :: head"></head>
 <body>
 
     <a href="/add">Post a Message</a>
@@ -24,6 +21,6 @@
 
         </tr>
     </table>
-
+<div th:insert="base :: javascript"></div>
 </body>
 </html>

@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<head th:insert="base :: head"></head>
 <body>
 
     <a href="/">Show all Messages</a><br/>
@@ -14,6 +11,6 @@
     Posted Date: <span th:text="${message.postedDate}"/><br/>
 
     <a th:href="@{/delete/{id}(id=${message.id})}">Delete Message</a>
-
+<div th:insert="base :: javascript"></div>
 </body>
 </html>
