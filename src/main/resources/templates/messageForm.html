@@ -4,20 +4,50 @@
 <body>
 <nav th:insert="base :: navbar"></nav>
 
-    <form action="#" th:action="@{/process}" th:object="${message}" method="post">
-        <input type="hidden" th:field="*{id}"/>
+    <!--<form action="#" th:action="@{/process}" th:object="${message}" method="post">-->
+        <!--<input type="hidden" th:field="*{id}"/>-->
 
-        Title: <input type="text" th:field="*{title}"/>
-        <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span><br/>
+        <!--Title: <input type="text" th:field="*{title}"/>-->
+        <!--<span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span><br/>-->
 
-        Content: <textarea type="text" th:field="*{content}"></textarea>
-        <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span><br/>
+        <!--Content: <textarea type="text" th:field="*{content}"></textarea>-->
+        <!--<span th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span><br/>-->
 
-        Posted By: <input type="text" th:field="*{postedBy}"/>
-        <span th:if="${#fields.hasErrors('postedBy')}" th:errors="*{postedBy}"></span><br/>
+        <!--Posted By: <input type="text" th:field="*{postedBy}"/>-->
+        <!--<span th:if="${#fields.hasErrors('postedBy')}" th:errors="*{postedBy}"></span><br/>-->
 
-        <input type="submit" value="Post"/>
-    </form>
+        <!--<input type="submit" value="Post"/>-->
+    <!--</form>-->
+
+
+<form action="#" th:action="@{/process}" th:object="${message}" method="post">
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Title</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title" th:field="*{title}">
+        <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Content</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="What do you want to say?" th:field="*{content}"></textarea>
+        <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Posted By</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Name" th:field="*{postedBy}">
+        <span th:if="${#fields.hasErrors('postedBy')}" th:errors="*{postedBy}"></span>
+    </div>
+
+    <!--<div class="form-group">-->
+        <!--<label for="exampleFormControlFile1">Import a File or Image</label>-->
+        <!--<input type="file" class="form-control-file" id="exampleFormControlFile1">-->
+    <!--</div>-->
+
+    <input style="width: 60px" type="submit" value="Post"/>
+
+</form>
 <div th:insert="base :: javascript"></div>
 </body>
 </html>
