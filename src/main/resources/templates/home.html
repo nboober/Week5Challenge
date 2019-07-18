@@ -12,7 +12,14 @@
             <p th:text="${message.content}"></p>
             <img width="25%" th:src="${message.image}"/>
             <footer>
-                    <p class="blockquote-footer">Posted By: <span th:text="${message.postedBy}"></span> on <span th:text="${message.postedDate}"></span></p>
+                    <p class="blockquote-footer">
+
+                        Posted By:
+                            <span th:if="${message.postedBy != null}" th:text="${message.postedBy}" ></span>
+                            <span th:unless="${message.postedBy == null}" th:text="Anonymous"></span>
+                        on
+                        <span th:text="${message.postedDate}"></span>
+                    </p>
             </footer>
         </blockquote>
     </div>
