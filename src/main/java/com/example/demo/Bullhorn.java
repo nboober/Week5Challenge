@@ -25,8 +25,6 @@ public class Bullhorn {
 
     private String postedDate;
 
-//    @NotNull
-//    @Size(min=2)
     private String postedBy;
 
     private String image;

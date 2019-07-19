@@ -17,9 +17,6 @@
                         Posted By:
                             <span th:if="${bullhorn.postedBy == ''}">Anonymous</span>
                             <span th:unless="${bullhorn.postedBy == ''}" th:text="${bullhorn.postedBy}" ></span>
-
-                            <!--<span th:if="${bullhorn.postedBy != null}" th:text="${bullhorn.postedBy}" ></span>-->
-                            <!--<span th:if="${bullhorn.postedBy}">Anonymous</span>-->
                         on
                         <span th:text="${bullhorn.postedDate}"></span>
                     </p>
