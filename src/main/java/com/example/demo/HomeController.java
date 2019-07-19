@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
+
 @Controller
 public class HomeController {
 
@@ -25,28 +26,29 @@ public class HomeController {
 
     @GetMapping("/add")
     public String newMessage(Model model){
-        model.addAttribute("message", new Bullhorn());
+        model.addAttribute("bullhorn", new Bullhorn());
         return "messageForm";
     }
 
     @PostMapping("/process")
-    public String processMessage(@Valid Bullhorn message, BindingResult result){
+    public String processMessage(@Valid Bullhorn bullhorn, BindingResult result, Model model){
         if(result.hasErrors()){
             return "messageForm";
         }
-        messageRepository.save(message);
+//        model.addAttribute("bullhorn", bullhorn);
+        messageRepository.save(bullhorn);
         return "redirect:/";
     }
 
     @RequestMapping("/update/{id}")
     public String updateMessage(@PathVariable("id") long id, Model model){
-        model.addAttribute("message", messageRepository.findById(id).get());
+        model.addAttribute("bullhorn", messageRepository.findById(id).get());
         return "messageForm";
     }
 
     @RequestMapping("/detail/{id}")
     public String viewMessage(@PathVariable("id") long id, Model model){
-        model.addAttribute("message", messageRepository.findById(id).get());
+        model.addAttribute("bullhorn", messageRepository.findById(id).get());
         return "viewMessage";
     }
 

@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-<head th:insert="base :: head"></head>
+<head th:replace="base :: head"></head>
 <body>
-<nav th:insert="base :: navbar"></nav>
+<nav th:replace="base :: navbar"></nav>
 
 <!--Message Cards Start-->
-<div class="card" th:each="message : ${messages}">
-    <div class="card-header" th:text="${message.title}"></div>
+<div class="card" th:each="bullhorn : ${messages}">
+    <div class="card-header" th:text="${bullhorn.title}"></div>
     <div class="card-body" >
         <blockquote class="blockquote mb-0">
-            <p th:text="${message.content}"></p>
-            <img width="25%" th:src="${message.image}"/>
+            <p th:text="${bullhorn.content}"></p>
+            <img width="25%" th:src="${bullhorn.image}"/>
             <footer>
                     <p class="blockquote-footer">
 
                         Posted By:
-                            <span th:if="${message.postedBy != null}" th:text="${message.postedBy}" ></span>
-                            <span th:unless="${message.postedBy == null}" th:text="Anonymous"></span>
+                            <span th:if="${bullhorn.postedBy != null}" th:text="${bullhorn.postedBy}" ></span>
+                            <span th:unless="${bullhorn.postedBy != null}" th:text="Anonymous"></span>
                         on
-                        <span th:text="${message.postedDate}"></span>
+                        <span th:text="${bullhorn.postedDate}"></span>
                     </p>
             </footer>
         </blockquote>
     </div>
     <hr/>
     <div>
-        <a class="side-by-side" th:href="@{/update/{id}(id=${message.id})}">Update</a>
-        <a class="side-by-side" th:href="@{/detail/{id}(id=${message.id})}">Details</a>
-        <a class="side-by-side" th:href="@{/delete/{id}(id=${message.id})}">Delete</a>
+        <a class="side-by-side" th:href="@{/update/{id}(id=${bullhorn.id})}">Update</a>
+        <a class="side-by-side" th:href="@{/detail/{id}(id=${bullhorn.id})}">Details</a>
+        <a class="side-by-side" th:href="@{/delete/{id}(id=${bullhorn.id})}">Delete</a>
     </div>
 </div>
 <!--Message Cards end-->
 
-<div th:insert="base :: javascript"></div>
+<div th:replace="base :: javascript"></div>
 </body>
 </html>
