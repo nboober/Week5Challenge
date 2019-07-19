@@ -15,8 +15,8 @@
                     <p class="blockquote-footer">
 
                         Posted By:
-                            <span th:if="${bullhorn.postedBy != 'null'}" th:text="${bullhorn.postedBy}" ></span>
-                            <span th:unless="${bullhorn.postedBy == 'null'}" th:text="Anonymous"></span>
+                            <span th:if="${bullhorn.postedBy != null}" th:text="${bullhorn.postedBy}" ></span>
+                            <span th:if="${bullhorn.postedBy == null}">Anonymous</span>
                         on
                         <span th:text="${bullhorn.postedDate}"></span>
                     </p>
